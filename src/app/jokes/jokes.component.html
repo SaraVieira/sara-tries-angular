@@ -1,0 +1,18 @@
+<div class="pa3 pa5-ns">
+  <form class="pa4 black-80">
+    <div class="measure">
+      <label for="name" class="f6 b db mb2">Number Of Jokes </label>
+      <input id="name" name="count" type="number" [ngModel]="numberOfJokes" (ngModelChange)="search($event)" class="input-reset ba b--black-20 pa2 mb2 db w-100">
+    </div>
+  </form>
+  <ul class="list pl0 measure center">
+    <li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30 tc">
+      <p *ngIf="isLoading">Loading....</p>
+    </li>
+    <li class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30" *ngFor="let joke of jokes">
+      <a [routerLink]="['/joke', joke.id]">
+        {{joke.joke}}
+      </a>
+    </li>
+  </ul>
+</div>
